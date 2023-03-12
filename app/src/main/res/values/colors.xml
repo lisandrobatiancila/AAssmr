@@ -10,4 +10,5 @@
     <color name="assmrColor">#f7ce25</color>
     <color name="grayColor">#ddd</color>
     <color name="signupBGColor">#F4FFFA</color>
+    <color name="red">#ff3300</color>
 </resources>

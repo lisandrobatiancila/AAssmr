@@ -146,11 +146,14 @@
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView
+                    android:id="@+id/txtFileCount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Please include a file"
+                    android:text="Please include a file *"
+                    android:textColor="@color/red"
                     android:layout_marginTop="10dp"/>
                 <ImageButton
+                    android:id="@+id/imgbtnOpenGallery"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:src="@mipmap/ic_launcher" />
