@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#103672"> <!-- 80% they said; opacity the ripple color-effect -->
+    <item android:id="@android:id/addToDictionary">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="90"
+                android:endColor="#2dd280"
+                android:startColor="#26d980"
+                android:type="linear" />
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+</ripple>

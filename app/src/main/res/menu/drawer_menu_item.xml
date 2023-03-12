@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/accntDashboard"
+            android:icon="@drawable/baseline_dashboard_24"
+            android:title="Dashboard"/>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/accntMyProperty"
+            android:title="My Property">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/accntAddProperty"
+                        android:icon="@drawable/baseline_add_property_24"
+                        android:title="Add Property"/>
+                    <item
+                        android:id="@+id/accntViewProperty"
+                        android:icon="@drawable/baseline_my_property_bag_24"
+                        android:title="View Property"/>
+                </group>
+            </menu>
+        </item>
+        <item
+            android:id="@+id/accntFeedbacks"
+            android:icon="@drawable/baseline_dynamic_feed_24"
+            android:title="Feedbacks"/>
+        <item
+            android:id="@+id/accntMessages"
+            android:icon="@drawable/baseline_message_24"
+            android:title="Messages"/>
+        <item
+            android:id="@+id/accntInquiries"
+            android:icon="@drawable/baseline_inquiry_24"
+            android:title="Inquiries"/>
+        <item
+            android:id="@+id/accntSettings"
+            android:icon="@drawable/baseline_settings_24"
+            android:title="Settings"/>
+    </group>
+</menu>

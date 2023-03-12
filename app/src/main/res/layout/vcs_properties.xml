@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <include
+        layout="@layout/app_toolbar_home" />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/propTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabVehicle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vehicle"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabRealestate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Realestate"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabJewelry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jewelry"/>
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/propviewPager2" />
+</LinearLayout>
