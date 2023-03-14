@@ -36,110 +36,110 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtOwner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Owner">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtOwner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtCellNo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="+09">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtCellNo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtBrand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Brand">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtBrand"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtModel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Model">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtModel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Location">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtLocation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPostalAddress"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtDownpayment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Downpayment">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtDownpayment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtInstallmentpaid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Installment Paid">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInstallmentpaid"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtInstallmentduration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Installment Duration">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtInstallmentduration"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="datetime"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtDelinquent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Delinquent">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtDelinquent"
                         android:inputType="datetime"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Description">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textMultiLine"
@@ -164,12 +164,14 @@
                 android:orientation="horizontal"
                 android:padding="10dp">
                 <Button
+                    android:id="@+id/btnSave"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Save"
                     android:layout_weight="1"
                     android:layout_marginEnd="3dp"/>
                 <Button
+                    android:id="@+id/btnReset"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Reset"

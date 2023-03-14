@@ -1,9 +1,9 @@
 package com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,24 +14,26 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Realestate.AddRealestateProperty;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.AddVehicleProperty;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Interface.AddVehicleFragmentInterface;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Model.VehicleResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddProperty extends Fragment {
+public class AddProperty extends Fragment{
     FrameLayout frameLayout;
     Spinner spinner_chooseProperty; // choose what property type to post
     List<String> propertyType = new ArrayList<String>();
     FragmentTransaction transaction;
     AddVehicleProperty addVehicleProperty;
     AddRealestateProperty addRealestateProperty;
+    AddVehicleFragmentInterface addVehicleFragmentInterface;
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
@@ -66,7 +68,15 @@ public class AddProperty extends Fragment {
         });
         return view;
     }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        addVehicleFragmentInterface = (AddVehicleFragmentInterface) context;
+    }
+
     private void setPropertyType() {
+        addVehicleFragmentInterface.testsInterface("Data from AddProp.java");
         propertyType.add("--Choose--");
         propertyType.add("Vehicle");
         propertyType.add("Realestate");
@@ -75,4 +85,5 @@ public class AddProperty extends Fragment {
         ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, propertyType);
         spinner_chooseProperty.setAdapter(adapter);
     }
+
 }

@@ -16,11 +16,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.AddProperty;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Interface.AddVehicleFragmentInterface;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ViewProperty;
 import com.example.a_assmr.Views.Credentials.Properties.Properties;
 import com.google.android.material.navigation.NavigationView;
 
-public class AccountHome extends AppCompatActivity {
+public class AccountHome extends AppCompatActivity implements AddVehicleFragmentInterface{
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -72,5 +73,10 @@ public class AccountHome extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         toggle.onOptionsItemSelected(item);
         return true;
+    }
+
+    @Override
+    public void testsInterface(String resp) {
+        Toast.makeText(this, "From AccountHome -> Parent: "+resp, Toast.LENGTH_LONG).show();
     }
 }
