@@ -1,7 +1,6 @@
 package com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,10 +16,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.a_assmr.R;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Jewelry.AddJewelryProperty;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Realestate.AddRealestateProperty;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.AddVehicleProperty;
-import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Interface.AddVehicleFragmentInterface;
-import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Model.VehicleResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +30,7 @@ public class AddProperty extends Fragment{
     FragmentTransaction transaction;
     AddVehicleProperty addVehicleProperty;
     AddRealestateProperty addRealestateProperty;
-    AddVehicleFragmentInterface addVehicleFragmentInterface;
+    AddJewelryProperty addJewelryProperty;
     @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
@@ -41,22 +38,34 @@ public class AddProperty extends Fragment{
         View view = inflater.inflate(R.layout.account_home_add_property, container, false);
         frameLayout = view.findViewById(R.id.accntAddPropertyFrameLayout);
         spinner_chooseProperty = view.findViewById(R.id.spinnerAccntChooseProperty);
+
         addVehicleProperty = new AddVehicleProperty();
         addRealestateProperty = new AddRealestateProperty();
+        addJewelryProperty = new AddJewelryProperty();
 
         setPropertyType();
-
+        getChildFragmentManager().beginTransaction().add(R.id.accntAddPropertyFrameLayout, addVehicleProperty).commit(); // default view fragments
         spinner_chooseProperty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
-                    case 1:
+                    case 1: // vehicle
                         getChildFragmentManager().beginTransaction().remove(addRealestateProperty).commit();
+                        getChildFragmentManager().beginTransaction().remove(addJewelryProperty).commit();
+                        getChildFragmentManager().beginTransaction().remove(addVehicleProperty).commit();
                         getChildFragmentManager().beginTransaction().add(R.id.accntAddPropertyFrameLayout, addVehicleProperty).commit();
                     break;
-                    case 2:
+                    case 2: // real-estate
                         getChildFragmentManager().beginTransaction().remove(addVehicleProperty).commit();
+                        getChildFragmentManager().beginTransaction().remove(addJewelryProperty).commit();
+                        getChildFragmentManager().beginTransaction().remove(addRealestateProperty).commit();
                         getChildFragmentManager().beginTransaction().add(R.id.accntAddPropertyFrameLayout, addRealestateProperty).commit();
+                    break;
+                    case 3: // jewelry
+                        getChildFragmentManager().beginTransaction().remove(addVehicleProperty).commit();
+                        getChildFragmentManager().beginTransaction().remove(addRealestateProperty).commit();
+                        getChildFragmentManager().beginTransaction().remove(addJewelryProperty).commit();
+                        getChildFragmentManager().beginTransaction().add(R.id.accntAddPropertyFrameLayout, addJewelryProperty).commit();
                     break;
                 }
             }
@@ -69,14 +78,7 @@ public class AddProperty extends Fragment{
         return view;
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        addVehicleFragmentInterface = (AddVehicleFragmentInterface) context;
-    }
-
     private void setPropertyType() {
-        addVehicleFragmentInterface.testsInterface("Data from AddProp.java");
         propertyType.add("--Choose--");
         propertyType.add("Vehicle");
         propertyType.add("Realestate");

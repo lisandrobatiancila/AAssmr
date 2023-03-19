@@ -1,17 +1,13 @@
 package com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Model;
 
-import android.content.ClipData;
-import android.content.Intent;
-
-public class VehicleForm {
+public class AddVehicleForm {
     String owner, mobileNo;
     String brand, model, location;
     double downpayment, installmentPaid;
     String installmentDuration;
     String delinquent, description;
-    Intent vehicleImages;
 
-    public VehicleForm(String owner, String mobileNo, String brand, String model, String location, double downpayment, double installmentPaid, String installmentDuration, String delinquent, String description, Intent vehicleImages) {
+    public AddVehicleForm(String owner, String mobileNo, String brand, String model, String location, double downpayment, double installmentPaid, String installmentDuration, String delinquent, String description) {
         this.owner = owner;
         this.mobileNo = mobileNo;
         this.brand = brand;
@@ -22,7 +18,6 @@ public class VehicleForm {
         this.installmentDuration = installmentDuration;
         this.delinquent = delinquent;
         this.description = description;
-        this.vehicleImages = vehicleImages;
     }
 
     public String getOwner() {
@@ -103,13 +98,5 @@ public class VehicleForm {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Intent getVehicleImages() {
-        return vehicleImages;
-    }
-
-    public void setVehicleImages(Intent vehicleImages) {
-        this.vehicleImages = vehicleImages;
     }
 }

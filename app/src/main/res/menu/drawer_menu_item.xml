@@ -41,5 +41,9 @@
             android:id="@+id/accntSettings"
             android:icon="@drawable/baseline_settings_24"
             android:title="Settings"/>
+        <item
+            android:id="@+id/accntLogout"
+            android:icon="@drawable/baseline_logout_24"
+            android:title="Logout"/>
     </group>
 </menu>
