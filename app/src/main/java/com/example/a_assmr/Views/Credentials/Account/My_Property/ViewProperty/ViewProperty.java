@@ -15,6 +15,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
 
 import com.example.a_assmr.R;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Vehicle.MyVehicle;
 
 public class ViewProperty extends Fragment {
     CardView vehicleCard, realestateCard, jewelryCard;
@@ -24,6 +25,8 @@ public class ViewProperty extends Fragment {
         View view = inflater.inflate(R.layout.account_home_view_property, container, false);
         initializeCategory(view);
 
+        getChildFragmentManager().beginTransaction().add(R.id.frameLayoutMyProperty, new MyVehicle()).commit();
+
         return view;
     }
     private void initializeCategory(View view) {
@@ -31,7 +34,9 @@ public class ViewProperty extends Fragment {
         realestateCard = view.findViewById(R.id.realestateCard);
         jewelryCard = view.findViewById(R.id.jewelryCard);
         TextView txtVehicle, txtRealestate, txtJewelry;
-        txtVehicle = view.findViewById(R.id.textVehicle); txtRealestate = view.findViewById(R.id.textRealestate); txtJewelry = view.findViewById(R.id.textJewelry);
+        txtVehicle = view.findViewById(R.id.textVehicle);
+        txtRealestate = view.findViewById(R.id.textRealestate);
+        txtJewelry = view.findViewById(R.id.textJewelry);
         vehicleCard.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -75,4 +80,5 @@ public class ViewProperty extends Fragment {
             }
         });
     }
+
 }
