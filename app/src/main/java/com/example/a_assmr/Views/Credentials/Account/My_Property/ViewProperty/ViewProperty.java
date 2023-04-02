@@ -15,6 +15,7 @@ import androidx.core.graphics.ColorUtils;
 import androidx.fragment.app.Fragment;
 
 import com.example.a_assmr.R;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Jewelry.MyJewelry;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Vehicle.MyVehicle;
 
 public class ViewProperty extends Fragment {
@@ -49,6 +50,8 @@ public class ViewProperty extends Fragment {
 
                 jewelryCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
                 txtJewelry.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
+
+                getChildFragmentManager().beginTransaction().replace(R.id.frameLayoutMyProperty, new MyVehicle()).commit();
             }
         });
         realestateCard.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +80,8 @@ public class ViewProperty extends Fragment {
 
                 realestateCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
                 txtRealestate.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black), 255));
+
+                getChildFragmentManager().beginTransaction().replace(R.id.frameLayoutMyProperty, new MyJewelry()).commit();
             }
         });
     }

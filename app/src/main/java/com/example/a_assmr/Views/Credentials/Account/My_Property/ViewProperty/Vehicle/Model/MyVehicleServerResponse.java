@@ -3,7 +3,7 @@ package com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.V
 import java.util.List;
 
 public class MyVehicleServerResponse {
-    int code, status;
-    String message;
+    public int code, status;
+    public String message;
     public List<MyVehicleLists> myVehicleLists;
 }

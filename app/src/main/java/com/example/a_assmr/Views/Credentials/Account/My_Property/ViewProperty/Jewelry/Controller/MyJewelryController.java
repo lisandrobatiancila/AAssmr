@@ -1,4 +1,4 @@
-package com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Vehicle.Controller;
+package com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Jewelry.Controller;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.a_assmr.Common;
 import com.example.a_assmr.CommonDir.GenericClassServerResponse;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ItemViewModel;
-import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Vehicle.Interface.MyVehicleDBInterface;
-import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Vehicle.Model.MyVehicleServerResponse;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Jewelry.Interface.MyJewelryDBInterface;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Jewelry.Model.MyJewelryServerResponse;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -21,19 +21,19 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MyVehicleController {
+public class MyJewelryController {
     Context context;
     Common common;
     ItemViewModel itemViewModel;
     AlertDialog dialog;
-    public MyVehicleController(Context context, FragmentActivity fragmentActivity, AlertDialog dialog) {
+    public MyJewelryController(Context context, FragmentActivity fragmentActivity, AlertDialog dialog) {
         this.context = context;
         this.common = new Common();
         this.dialog = dialog;
-        this.itemViewModel = new ViewModelProvider(fragmentActivity).get(ItemViewModel.class);
+        itemViewModel = new ViewModelProvider(fragmentActivity).get(ItemViewModel.class);
     }
 
-    public void fetchMyPostedVehicles(int activeUserID) {
+    public void fetchMyPostedJewelries(int activeUserID) {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -42,30 +42,30 @@ public class MyVehicleController {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(this.common.getApiURI())
+                .baseUrl(common.getApiURI())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
 
-        MyVehicleDBInterface dbInterface = retrofit.create(MyVehicleDBInterface.class);
-        Call<MyVehicleServerResponse> call = dbInterface.myVehicleLists(activeUserID);
-        call.enqueue(new Callback<MyVehicleServerResponse>() {
+        MyJewelryDBInterface dbInterface = retrofit.create(MyJewelryDBInterface.class);
+        Call<MyJewelryServerResponse> call = dbInterface.myJewelryLists(activeUserID);
+        call.enqueue(new Callback<MyJewelryServerResponse>() {
             @Override
-            public void onResponse(Call<MyVehicleServerResponse> call, Response<MyVehicleServerResponse> response) {
+            public void onResponse(Call<MyJewelryServerResponse> call, Response<MyJewelryServerResponse> response) {
                 if(!response.isSuccessful()) {
                     dialog.dismiss();
                     Toast.makeText(context, "R: "+response.message(), Toast.LENGTH_LONG).show();
                     return;
                 }
                 dialog.dismiss();
-
-                GenericClassServerResponse<MyVehicleServerResponse> genericClassServerResponse = new GenericClassServerResponse<>();
+                GenericClassServerResponse<MyJewelryServerResponse> genericClassServerResponse = new GenericClassServerResponse<>();
                 genericClassServerResponse.setCertainGenericClassServerResponse(response.body());
+
                 itemViewModel.selectItem(genericClassServerResponse);
             }
 
             @Override
-            public void onFailure(Call<MyVehicleServerResponse> call, Throwable t) {
+            public void onFailure(Call<MyJewelryServerResponse> call, Throwable t) {
                 dialog.dismiss();
                 Toast.makeText(context, "F: "+t.getMessage(), Toast.LENGTH_LONG).show();
             }
