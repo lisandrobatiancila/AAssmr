@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+    <item
+        android:id="@+id/viewProperty"
+        android:icon="@drawable/baseline_remove_red_eye_24"
+        android:title="View" />
+    <item
+        android:id="@+id/updateProperty"
+        android:icon="@drawable/baseline_mode_edit_24"
+        android:title="Update" />
+    <item
+        android:id="@+id/removeProperty"
+        android:icon="@drawable/baseline_delete_24"
+        android:title="Remove" />
+</menu>

@@ -74,15 +74,15 @@
                     android:layout_height="wrap_content"
                     android:text="Owner"/>
                 <TextView
-                    android:id="@+id/txtRName"
+                    android:id="@+id/txtRPropType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vehicle name"/>
+                    android:text="Property type"/>
                 <TextView
-                    android:id="@+id/txtRModel"
+                    android:id="@+id/txtRType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vehicle model"/>
+                    android:text="Realestate type"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

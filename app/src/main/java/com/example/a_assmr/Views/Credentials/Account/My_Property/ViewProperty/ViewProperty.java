@@ -16,10 +16,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Jewelry.MyJewelry;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Realestate.MyRealestate;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Vehicle.MyVehicle;
 
 public class ViewProperty extends Fragment {
     CardView vehicleCard, realestateCard, jewelryCard;
+    String activeViewed = "vehicle";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,46 +44,56 @@ public class ViewProperty extends Fragment {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
-                vehicleCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.teal_700),255));
-                txtVehicle.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white),255));
+                if(!activeViewed.equals("vehicle")) {
+                    vehicleCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.teal_700),255));
+                    txtVehicle.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white),255));
 
-                realestateCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white),255));
-                txtRealestate.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
+                    realestateCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white),255));
+                    txtRealestate.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
 
-                jewelryCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
-                txtJewelry.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
+                    jewelryCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
+                    txtJewelry.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
 
-                getChildFragmentManager().beginTransaction().replace(R.id.frameLayoutMyProperty, new MyVehicle()).commit();
+                    getChildFragmentManager().beginTransaction().replace(R.id.frameLayoutMyProperty, new MyVehicle()).commit();
+                }
+                activeViewed = "vehicle";
             }
         });
         realestateCard.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
-                realestateCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.teal_700), 255));
-                txtRealestate.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
+                if(!activeViewed.equals("realestate")) {
+                    realestateCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.teal_700), 255));
+                    txtRealestate.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
 
-                vehicleCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
-                txtVehicle.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
+                    vehicleCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
+                    txtVehicle.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
 
-                jewelryCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
-                txtJewelry.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
+                    jewelryCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
+                    txtJewelry.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black),255));
+                    getChildFragmentManager().beginTransaction().replace(R.id.frameLayoutMyProperty, new MyRealestate()).commit();
+                }
+                activeViewed = "realestate";
             }
         });
         jewelryCard.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
-                jewelryCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.teal_700),255));
-                txtJewelry.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
+                if(!activeViewed.equals("jewelry")) {
+                    jewelryCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.teal_700),255));
+                    txtJewelry.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
 
-                vehicleCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
-                txtVehicle.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black), 255));
+                    vehicleCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
+                    txtVehicle.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black), 255));
 
-                realestateCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
-                txtRealestate.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black), 255));
+                    realestateCard.setCardBackgroundColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.white), 255));
+                    txtRealestate.setTextColor(ColorUtils.setAlphaComponent(ContextCompat.getColor(getContext(), R.color.black), 255));
 
-                getChildFragmentManager().beginTransaction().replace(R.id.frameLayoutMyProperty, new MyJewelry()).commit();
+                    getChildFragmentManager().beginTransaction().replace(R.id.frameLayoutMyProperty, new MyJewelry()).commit();
+                }
+                activeViewed = "jewelry";
             }
         });
     }
