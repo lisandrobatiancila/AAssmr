@@ -14,9 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aassmr"
         tools:targetApi="31">
+
         <activity android:name=".Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.ViewCertainVehicle" android:parentActivityName=".Views.Credentials.Account.AccountHome"/>
+        <activity android:name=".Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.ViewCertainRealestate" android:parentActivityName=".Views.Credentials.Account.AccountHome"/>
+        <activity android:name=".Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.ViewCertainJewelry" android:parentActivityName=".Views.Credentials.Account.AccountHome"/>
 
         <activity android:name=".Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.UpdateCertainVehicle" android:parentActivityName=".Views.Credentials.Account.AccountHome"/>
+        <activity android:name=".Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.UpdateCertainRealestate" android:parentActivityName=".Views.Credentials.Account.AccountHome"/>
+        <activity android:name=".Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.UpdateCertainJewelry" android:parentActivityName=".Views.Credentials.Account.AccountHome"/>
 
         <activity android:name=".Views.Credentials.Signin.Signin" android:parentActivityName=".MainActivity"/>
         <activity android:name=".Views.Credentials.Signup.Signup" android:parentActivityName=".MainActivity"/>

@@ -4,11 +4,11 @@ public class MyRealestateLists {
     public int realestateID, propertyID;
     public String realestateOwner, realestateContactno, realestateLocation;
     public Double realestateDownpayment, realestateInstallmentpaid;
-    public String realestatInstallmentduration, realestateDelinquent, realestateType, realestateDescription;
+    public String realestateInstallmentduration, realestateDelinquent, realestateType, realestateDescription;
     public int propertyCount;
     public String propertyStatus, realestateIMG;
 
-    public MyRealestateLists(int realestateID, int propertyID, String realestateOwner, String realestateContactno, String realestateLocation, Double realestateDownpayment, Double realestateInstallmentpaid, String realestatInstallmentduration, String realestateDelinquent, String realestateType, String realestateDescription, int propertyCount, String propertyStatus, String realestateIMG) {
+    public MyRealestateLists(int realestateID, int propertyID, String realestateOwner, String realestateContactno, String realestateLocation, Double realestateDownpayment, Double realestateInstallmentpaid, String realestateInstallmentduration, String realestateDelinquent, String realestateType, String realestateDescription, int propertyCount, String propertyStatus, String realestateIMG) {
         this.realestateID = realestateID;
         this.propertyID = propertyID;
         this.realestateOwner = realestateOwner;
@@ -16,7 +16,7 @@ public class MyRealestateLists {
         this.realestateLocation = realestateLocation;
         this.realestateDownpayment = realestateDownpayment;
         this.realestateInstallmentpaid = realestateInstallmentpaid;
-        this.realestatInstallmentduration = realestatInstallmentduration;
+        this.realestateInstallmentduration = realestateInstallmentduration;
         this.realestateDelinquent = realestateDelinquent;
         this.realestateType = realestateType;
         this.realestateDescription = realestateDescription;
@@ -81,12 +81,12 @@ public class MyRealestateLists {
         this.realestateInstallmentpaid = realestateInstallmentpaid;
     }
 
-    public String getRealestatInstallmentduration() {
-        return realestatInstallmentduration;
+    public String getRealestateInstallmentduration() {
+        return realestateInstallmentduration;
     }
 
-    public void setRealestatInstallmentduration(String realestatInstallmentduration) {
-        this.realestatInstallmentduration = realestatInstallmentduration;
+    public void setRealestateInstallmentduration(String realestateInstallmentduration) {
+        this.realestateInstallmentduration = realestateInstallmentduration;
     }
 
     public String getRealestateDelinquent() {

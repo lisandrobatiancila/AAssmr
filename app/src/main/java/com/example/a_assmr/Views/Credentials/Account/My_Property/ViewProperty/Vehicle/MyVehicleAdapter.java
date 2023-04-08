@@ -1,5 +1,6 @@
 package com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Vehicle;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -75,6 +76,7 @@ public class MyVehicleAdapter extends RecyclerView.Adapter<MyVehicleHolder> {
             }
         });
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @SuppressLint("MissingInflatedId")
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 int menu_pos = menuItem.getItemId();
@@ -124,8 +126,7 @@ public class MyVehicleAdapter extends RecyclerView.Adapter<MyVehicleHolder> {
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
                         View view = inflater.inflate(R.layout.prompt_property_remove, null);
                         builder.setView(view);
-                        dialog = builder.create();
-                        builder.setCancelable(false);
+                        builder.setTitle("Message");
 
                         LinearLayout layoutConfirmation = view.findViewById(R.id.layoutConfirmation);
                         LinearLayout layoutRemoving = view.findViewById(R.id.layoutRemoving);
@@ -158,6 +159,7 @@ public class MyVehicleAdapter extends RecyclerView.Adapter<MyVehicleHolder> {
                                     if(obj instanceof RemoveServerResponse) {
                                         if(((RemoveServerResponse) obj).code == 200) {
                                             Toast.makeText(context, "Successfully removed.", Toast.LENGTH_SHORT).show();
+                                            vehicleLists.remove(pos);
                                         }
                                         else
                                             Toast.makeText(context, "Removing faield.", Toast.LENGTH_LONG).show();
@@ -171,7 +173,8 @@ public class MyVehicleAdapter extends RecyclerView.Adapter<MyVehicleHolder> {
                               dialog.dismiss();
                             }
                         });
-
+                        dialog = builder.create();
+                        dialog.setCancelable(false);
                         dialog.show();
                     break;
                 }

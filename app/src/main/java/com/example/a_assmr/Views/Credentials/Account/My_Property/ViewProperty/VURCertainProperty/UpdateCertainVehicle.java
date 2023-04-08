@@ -1,6 +1,7 @@
 package com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -9,17 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.a_assmr.CommonDir.GenericClass;
 import com.example.a_assmr.R;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ItemViewModel;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.Controller.UpdateCertainPropController;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.Model.UpdateServerResponse;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.Model.UpdateVehicleModel;
-import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ItemViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class UpdateCertainVehicle extends AppCompatActivity {
@@ -77,8 +77,6 @@ public class UpdateCertainVehicle extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.show();
-
                 String owner = edtOwner.getText().toString();
                 String contactno = edtContactno.getText().toString();
                 String brand = edtBrand.getText().toString();
@@ -104,18 +102,22 @@ public class UpdateCertainVehicle extends AppCompatActivity {
                         }
                     } // end of for
                     if(!should_fail) {
+                        dialog.show();
                         UpdateVehicleModel ucvm = new UpdateVehicleModel(propertyID, owner, contactno, brand, model, location, downpayment,
                                 paid, duration, delinquent, description); // update certain vehicle model
 
                         GenericClass<UpdateVehicleModel> genericClass = new GenericClass<>();
                         genericClass.setCertainClass(ucvm);
 
+                        GenericClass<UpdateCertainVehicle> genericClass1 = new GenericClass<>();
+                        genericClass1.setCertainClass(UpdateCertainVehicle.this);
+
                         UpdateCertainPropController ucpc = new UpdateCertainPropController(getApplicationContext(), genericClass, dialog,
-                                UpdateCertainVehicle.this); // controller
+                                genericClass1); // controller
                         ucpc.updateCertainProperty(propertyID, "vehicle", genericClass);
                     }
                     else {
-                        Toast.makeText(getApplicationContext(), "Somefields are empty.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Some fields are empty.", Toast.LENGTH_LONG).show();
                         dialog.dismiss();
                     }
                 }

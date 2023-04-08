@@ -11,4 +11,7 @@
     <color name="grayColor">#ddd</color>
     <color name="signupBGColor">#F4FFFA</color>
     <color name="red">#ff3300</color>
+    <color name="btnDanger">#f5b642</color>
+    <color name="btnInfo">#14a5c9</color>
+    <color name="btnSuccess">#2dd280</color>
 </resources>

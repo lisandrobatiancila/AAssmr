@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="#103672">
-    <item>
+    android:color="#f58442">
+    <item android:id="@android:id/addToDictionary">
         <shape android:shape="rectangle">
             <gradient
+                android:angle="90"
+                android:endColor="#f5b642"
                 android:startColor="#f58442"
-                android:endColor="#f5b642"/>
-            <corners android:radius="100dp"/>
+                android:type="linear"/>
+            <corners android:radius="50dp"/>
         </shape>
     </item>
 </ripple>

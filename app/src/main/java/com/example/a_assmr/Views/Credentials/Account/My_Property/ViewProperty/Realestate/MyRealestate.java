@@ -68,7 +68,16 @@ public class MyRealestate extends Fragment {
         rvRealestate = view.findViewById(R.id.rvMyRealestate);
         controller = new MyRealestateController(requireActivity(), requireActivity(), dialog);
         controller.fetchMyPostedRealestates(sharedPref.activeUserID());
-        
+
+        swipeRefreshLayout1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout1.setRefreshing(false);
+                dialog.show();
+                controller.fetchMyPostedRealestates(sharedPref.activeUserID());
+            }
+        });
+
         itemViewModel = new ViewModelProvider(requireActivity()).get(ItemViewModel.class);
         itemViewModel.getSelectedItem().observe(requireActivity(), item -> {
             Object obj = item.getCertainGenericClass();

@@ -56,9 +56,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Brand">
+                android:hint="Jewelry name">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtBrand"
+                    android:id="@+id/edtJName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white" />
@@ -66,9 +66,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Model">
+                android:hint="Jewelry type">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtModel"
+                    android:id="@+id/edtJModel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white" />

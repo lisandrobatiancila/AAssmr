@@ -13,4 +13,15 @@
         <item name="android:statusBarColor" tools:targetApi="21">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.ButtonDanger" parent="Theme.AppCompat.Light">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/btnDanger</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="Theme.ButtonInfo" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/btnInfo</item>
+    </style>
+    <style name="Theme.ButtonSuccess" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/btnSuccess</item>
+    </style>
 </resources>

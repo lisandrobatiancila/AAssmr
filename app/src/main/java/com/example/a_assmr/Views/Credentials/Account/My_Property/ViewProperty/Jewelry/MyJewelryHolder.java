@@ -11,6 +11,7 @@ import com.example.a_assmr.R;
 
 public class MyJewelryHolder extends RecyclerView.ViewHolder {
     ImageView propImage;
+    ImageView threeDots;
     TextView txtOwner, txtJewelryName, txtJewelryModel, txtStatus;
     public MyJewelryHolder(@NonNull View itemView) {
         super(itemView);
@@ -20,5 +21,6 @@ public class MyJewelryHolder extends RecyclerView.ViewHolder {
         txtJewelryName = itemView.findViewById(R.id.txtJName);
         txtJewelryModel = itemView.findViewById(R.id.txtJModel);
         txtStatus = itemView.findViewById(R.id.txtJStatus);
+        threeDots = itemView.findViewById(R.id.threeDots);
     }
 }

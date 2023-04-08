@@ -11,6 +11,8 @@ import com.example.a_assmr.Common;
 import com.example.a_assmr.CommonDir.GenericClass;
 import com.example.a_assmr.CommonDir.GenericClassServerResponse;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ItemViewModel;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Jewelry.MyJewelry;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Realestate.MyRealestate;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.Interface.VURDBInterface;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.Model.RemoveServerResponse;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.Vehicle.MyVehicle;
@@ -53,7 +55,7 @@ public class RemoveCertainPropController {
 
         VURDBInterface vurdbInterface = retrofit.create(VURDBInterface.class);
         if(obj instanceof MyVehicle) {
-            Call<RemoveServerResponse> call = vurdbInterface.removeCertainProperty(propertyID, propertyType);
+            Call<RemoveServerResponse> call = vurdbInterface.removeCertainVehicleProperty(propertyID, propertyType);
             call.enqueue(new Callback<RemoveServerResponse>() {
                 @Override
                 public void onResponse(Call<RemoveServerResponse> call, Response<RemoveServerResponse> response) {
@@ -63,6 +65,51 @@ public class RemoveCertainPropController {
                         return;
                     }
                     dialog.dismiss();
+                    GenericClassServerResponse<RemoveServerResponse> genericClassServerResponse = new GenericClassServerResponse<>();
+                    genericClassServerResponse.setCertainGenericClassServerResponse(response.body());
+
+                    itemViewModel.selectItem(genericClassServerResponse);
+                }
+
+                @Override
+                public void onFailure(Call<RemoveServerResponse> call, Throwable t) {
+                    dialog.dismiss();
+                    Toast.makeText(context, "F: "+t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+        else if(obj instanceof MyRealestate) {
+            Call<RemoveServerResponse> call = vurdbInterface.removeCertainRealestate(propertyID, propertyType);
+            call.enqueue(new Callback<RemoveServerResponse>() {
+                @Override
+                public void onResponse(Call<RemoveServerResponse> call, Response<RemoveServerResponse> response) {
+                    dialog.dismiss();
+                    if(!response.isSuccessful()) {
+                        Toast.makeText(context, "R: "+response.message(), Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    GenericClassServerResponse<RemoveServerResponse> genericClassServerResponse = new GenericClassServerResponse<>();
+                    genericClassServerResponse.setCertainGenericClassServerResponse(response.body());
+                    itemViewModel.selectItem(genericClassServerResponse);
+                }
+
+                @Override
+                public void onFailure(Call<RemoveServerResponse> call, Throwable t) {
+                    dialog.dismiss();
+                    Toast.makeText(context, "F: "+t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+        else if(obj instanceof MyJewelry) {
+            Call<RemoveServerResponse> call = vurdbInterface.removeCertainJewelry(propertyID, propertyType);
+            call.enqueue(new Callback<RemoveServerResponse>() {
+                @Override
+                public void onResponse(Call<RemoveServerResponse> call, Response<RemoveServerResponse> response) {
+                    dialog.dismiss();
+                    if(!response.isSuccessful()) {
+                        Toast.makeText(context, "R: "+response.message(), Toast.LENGTH_LONG).show();
+                        return;
+                    }
                     GenericClassServerResponse<RemoveServerResponse> genericClassServerResponse = new GenericClassServerResponse<>();
                     genericClassServerResponse.setCertainGenericClassServerResponse(response.body());
 
