@@ -29,7 +29,7 @@ import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Veh
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Interface.AddVehicleInterface;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Model.AddVehicleResponse;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ViewProperty;
-import com.example.a_assmr.Views.Credentials.Properties.Properties;
+import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties;
 import com.google.android.material.navigation.NavigationView;
 
 public class AccountHome extends AppCompatActivity implements AddVehicleInterface, AddRealesateInterface, AddJewelryInterface, GenericClassInterface {

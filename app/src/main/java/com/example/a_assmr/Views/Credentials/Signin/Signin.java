@@ -12,11 +12,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.a_assmr.R;
-import com.example.a_assmr.Views.Credentials.Properties.Properties;
+import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties;
 import com.example.a_assmr.Views.Credentials.Signin.Controller.SigninController;
 import com.example.a_assmr.Views.Credentials.Signin.Interface.SigninInterface;
 import com.example.a_assmr.Views.Credentials.Signin.Model.SigninResponse;

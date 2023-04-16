@@ -6,9 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
-import android.widget.Toolbar
-import com.example.a_assmr.Views.Credentials.Properties.Properties
+import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties
 import com.example.a_assmr.Views.Credentials.Signin.Signin
 import com.example.a_assmr.Views.Credentials.Signup.Signup
 
