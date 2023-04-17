@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +21,6 @@ import com.example.a_assmr.Views.Credentials.Properties.Assume.Model.AssumptionP
 import com.example.a_assmr.Views.Credentials.Properties.Assume.Model.AssumptionServerResponse;
 import com.example.a_assmr.Views.Credentials.Signup.Model.Cities;
 import com.example.a_assmr.Views.Credentials.Signup.Model.Provinces;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,11 +29,11 @@ import java.util.List;
 public class AssumptionForm implements AssumptionInterface{
     Context context;
     AlertDialog dialog, assumptionDialog;
-    TextInputEditText edtFirstname, edtMiddlename, edtLastname, edtContactno, edtAddress, edtWork, edtSalary;
+    EditText edtFirstname, edtMiddlename, edtLastname, edtContactno, edtAddress, edtWork, edtSalary;
     Spinner spinner_city, spinner_province, spinner_barangay;
     HashMap<String, List<Provinces>> hashedCities = new HashMap<>();
     HashMap<String, List<String>> hashedProvinces = new HashMap<>();
-    int is_first_time_province, is_first_time_city = 0;
+    int is_first_time_province, is_first_time_city, is_first_time_barangay = 0;
     int userID, propertyID;
     String city, province, barangay;
     public AssumptionForm(Context context, int userID, int propertyID) {
@@ -112,7 +112,7 @@ public class AssumptionForm implements AssumptionInterface{
         spinner_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(++is_first_time_city > 2) {
+                if(++is_first_time_city > 1) {
                     Object obj = adapterView.getSelectedItem();
                     city = obj.toString();
                     List<String> provinceList = new ArrayList<>();
@@ -137,7 +137,7 @@ public class AssumptionForm implements AssumptionInterface{
         spinner_province.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if(++is_first_time_province > 2) {
+                if(++is_first_time_province > 1) {
                     Object obj = adapterView.getSelectedItem();
                     List<String> barangayList = new ArrayList<>();
                     province = obj.toString();
@@ -149,6 +149,22 @@ public class AssumptionForm implements AssumptionInterface{
                     edtAddress.setText(barangay+", "+province+", "+city);
 
                     spinner_barangay.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, barangayList));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spinner_barangay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(++is_first_time_barangay > 1) {
+                    Object obj = adapterView.getSelectedItem();
+                    barangay = obj.toString();
+                    edtAddress.setText(barangay+", "+province+", "+city);
                 }
             }
 
@@ -251,6 +267,7 @@ public class AssumptionForm implements AssumptionInterface{
                     @Override
                     public void onClick(View view) {
                         assumptionDialog.dismiss();
+                        dialog.dismiss();
                     }
                 });
 

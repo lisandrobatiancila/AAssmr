@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:scrollbars="vertical"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,59 +34,64 @@
                 android:orientation="vertical"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp">
-                <com.google.android.material.textfield.TextInputLayout
+                <EditText
+                    android:id="@+id/edtFirstname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Firstname">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtFirstname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
+                    android:hint="Firstname"
+                    android:background="@drawable/custom_input"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:drawablePadding="12dp"
+                    android:padding="12dp"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:id="@+id/edtMiddlename"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Middlename">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtMiddlename"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
+                    android:hint="Middlename"
+                    android:background="@drawable/custom_input"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:drawablePadding="12dp"
+                    android:padding="12dp"
+                    android:layout_marginBottom="5dp"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtLastname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Lastname">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtLastname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
+                    android:hint="Lastname"
+                    android:background="@drawable/custom_input"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:drawablePadding="12dp"
+                    android:padding="12dp"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:id="@+id/edtContactno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Contactno">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtContactno"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:inputType="phone"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
+                    android:background="@drawable/custom_input"
+                    android:inputType="phone"
+                    android:hint="Contactno"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:drawablePadding="12dp"
+                    android:padding="12dp"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:id="@+id/edtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Address">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtAddress"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:inputType="textMultiLine"
-                        android:enabled="false"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:background="@drawable/custom_input"
+                    android:inputType="textMultiLine"
+                    android:enabled="false"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:drawablePadding="12dp"
+                    android:padding="12dp"
+                    android:hint="Address"
+                    android:layout_marginBottom="5dp"/>
             </LinearLayout>
             <!-- WORK DETAILS !-->
             <LinearLayout
@@ -94,27 +100,30 @@
                 android:orientation="vertical"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp">
-                <com.google.android.material.textfield.TextInputLayout
+
+                <EditText
+                    android:id="@+id/edtWork"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Work">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtWork"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"/>
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
+                    android:hint="Work"
+                    android:background="@drawable/custom_input"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:drawablePadding="12dp"
+                    android:padding="12dp"
+                    android:layout_marginBottom="5dp"/>
+                <EditText
+                    android:id="@+id/edtSalary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Salary">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtSalary"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:inputType="numberDecimal"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:background="@drawable/custom_input"
+                    android:hint="Salary"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:drawablePadding="12dp"
+                    android:padding="12dp"
+                    android:layout_marginBottom="5dp"/>
             </LinearLayout>
             <!--    ADDRESS -->
             <LinearLayout
