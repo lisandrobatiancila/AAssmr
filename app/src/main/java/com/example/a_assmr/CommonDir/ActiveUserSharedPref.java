@@ -27,4 +27,10 @@ public class ActiveUserSharedPref {
 
         return userFullName;
     }
+    public void clearUserSession() {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Credentials", Context.MODE_PRIVATE);
+        sharedPreferences.edit().remove("userID").commit();
+        sharedPreferences.edit().remove("email").commit();
+        sharedPreferences.edit().remove("fullName").commit();
+    }
 }

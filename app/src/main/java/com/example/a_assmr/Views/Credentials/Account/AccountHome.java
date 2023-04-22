@@ -2,7 +2,6 @@ package com.example.a_assmr.Views.Credentials.Account;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -32,6 +31,7 @@ import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Veh
 import com.example.a_assmr.Views.Credentials.Account.My_Property.FeedBacks.FeedBackFragment;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ViewProperty;
 import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties;
+import com.example.a_assmr.Views.Credentials.Signin.Signin;
 import com.google.android.material.navigation.NavigationView;
 
 public class AccountHome extends AppCompatActivity implements AddVehicleInterface, AddRealesateInterface, AddJewelryInterface, GenericClassInterface {
@@ -79,6 +79,19 @@ public class AccountHome extends AppCompatActivity implements AddVehicleInterfac
                     case R.id.accntInquiries:
                     break;
                     case R.id.accntSettings:
+                    break;
+                    case R.id.accntLogout:
+                        try {
+                            ActiveUserSharedPref sharedPref = new ActiveUserSharedPref(AccountHome.this);
+                            sharedPref.clearUserSession();
+
+                            System.out.println("activeUSER");
+                            System.out.println(sharedPref.activeUserID());
+                        }
+                        catch (Exception e) {
+                            Intent i_signin = new Intent(getApplicationContext(), Signin.class);
+                            AccountHome.this.startActivity(i_signin);
+                        }
                     break;
                 }
                 return true;
