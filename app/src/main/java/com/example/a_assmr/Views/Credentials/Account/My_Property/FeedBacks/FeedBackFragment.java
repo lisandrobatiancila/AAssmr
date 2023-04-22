@@ -98,7 +98,13 @@ public class FeedBackFragment extends Fragment implements FeedBackInterface {
                 dialog.show();
             }
         });
-
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                getAllFeedBacks();
+            }
+        });
         return view;
     }
 
