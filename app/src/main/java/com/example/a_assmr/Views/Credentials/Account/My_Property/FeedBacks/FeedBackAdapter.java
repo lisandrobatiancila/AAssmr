@@ -33,6 +33,7 @@ public class FeedBackAdapter extends RecyclerView.Adapter<FeedBackHolder> {
     public void onBindViewHolder(@NonNull FeedBackHolder holder, int position) {
         holder.txtUsername.setText(feedBackModelList.get(position).getUser_full_name());
         holder.txtDate.setText(feedBackModelList.get(position).getFeedback_date());
+        // the date was formatted in API side because in java we need a minSDK of 24 to use the SimpleDateFormat
         holder.txtUserComments.setText(feedBackModelList.get(position).getUser_feedback());
     }
 
