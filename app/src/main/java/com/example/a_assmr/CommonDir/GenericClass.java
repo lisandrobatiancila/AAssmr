@@ -13,5 +13,5 @@ public class GenericClass<T> {
     }
 }
 /* this class is used to reset the form from child TO parent
-  We cant send a trigger response to the parent class if some child class has done process the request
+  We can't send a trigger response to the parent class if some child class has done / finished / completed a process the request
 */

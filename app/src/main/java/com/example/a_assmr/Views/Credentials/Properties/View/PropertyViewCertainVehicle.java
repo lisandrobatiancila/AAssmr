@@ -1,5 +1,6 @@
 package com.example.a_assmr.Views.Credentials.Properties.View;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +14,10 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.a_assmr.Common;
+import com.example.a_assmr.CommonDir.ActiveUserSharedPref;
 import com.example.a_assmr.CommonDir.GenericClass;
 import com.example.a_assmr.R;
+import com.example.a_assmr.Views.Credentials.Properties.Assume.AssumptionForm;
 import com.example.a_assmr.Views.Credentials.Properties.View.Controller.PropertyViewCertainController;
 import com.example.a_assmr.Views.Credentials.Properties.View.Interface.PVCInterface;
 import com.example.a_assmr.Views.Credentials.Properties.View.Model.PVCVehicleModel;
@@ -31,6 +34,8 @@ public class PropertyViewCertainVehicle extends AppCompatActivity implements PVC
     Bundle bundle;
     int propertyID;
     Common common;
+    AlertDialog dialog;
+    PropertyViewCertainVehicle self;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +47,22 @@ public class PropertyViewCertainVehicle extends AppCompatActivity implements PVC
         btnAssume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ActiveUserSharedPref sharedPref = new ActiveUserSharedPref(self);
 
+                AssumptionForm assumptionForm = new AssumptionForm(self, sharedPref.activeUserID(),
+                        propertyID);
+                AlertDialog.Builder builder = new AlertDialog.Builder(self);
+
+                View assumption_form_modal = assumptionForm.AssumptionInitForm(self);
+                builder.setView(assumption_form_modal);
+
+                builder.setCancelable(false);
+
+                dialog = builder.create();
+                assumptionForm.setDialogInstance(dialog);
+                assumptionForm.getAssumerInformation(); // userID and propertyID was set already
+
+                dialog.show();
             }
         }); // assume a property "open a modal"
 
@@ -63,6 +83,7 @@ public class PropertyViewCertainVehicle extends AppCompatActivity implements PVC
         });
     }
     private void initForm() {
+        self = PropertyViewCertainVehicle.this;
         bundle = getIntent().getExtras();
         propertyID = bundle.getInt("property_id");
 

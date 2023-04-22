@@ -2,6 +2,7 @@ package com.example.a_assmr.Views.Credentials.Account;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Rea
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.AddVehicleProperty;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Interface.AddVehicleInterface;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Model.AddVehicleResponse;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.FeedBacks.FeedBackFragment;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ViewProperty;
 import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties;
 import com.google.android.material.navigation.NavigationView;
@@ -69,6 +71,8 @@ public class AccountHome extends AppCompatActivity implements AddVehicleInterfac
                         drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                     case R.id.accntFeedbacks:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new FeedBackFragment()).commit();
+                        drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                     case R.id.accntMessages:
                     break;

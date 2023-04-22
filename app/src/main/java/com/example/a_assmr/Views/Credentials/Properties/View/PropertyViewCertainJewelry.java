@@ -1,5 +1,6 @@
 package com.example.a_assmr.Views.Credentials.Properties.View;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,8 +15,10 @@ import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.a_assmr.Common;
+import com.example.a_assmr.CommonDir.ActiveUserSharedPref;
 import com.example.a_assmr.CommonDir.GenericClass;
 import com.example.a_assmr.R;
+import com.example.a_assmr.Views.Credentials.Properties.Assume.AssumptionForm;
 import com.example.a_assmr.Views.Credentials.Properties.View.Controller.PropertyViewCertainController;
 import com.example.a_assmr.Views.Credentials.Properties.View.Interface.PVCInterface;
 import com.example.a_assmr.Views.Credentials.Properties.View.Model.PVCJewelryModel;
@@ -34,6 +37,8 @@ public class PropertyViewCertainJewelry extends AppCompatActivity implements PVC
     PropertyViewCertainController pvcc;
     private int propertyID;
     Common common;
+    PropertyViewCertainJewelry self;
+    AlertDialog dialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +57,22 @@ public class PropertyViewCertainJewelry extends AppCompatActivity implements PVC
         btnAssume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ActiveUserSharedPref sharedPref = new ActiveUserSharedPref(self);
 
+                AssumptionForm assumptionForm = new AssumptionForm(self, sharedPref.activeUserID(),
+                        propertyID);
+                AlertDialog.Builder builder = new AlertDialog.Builder(self);
+
+                View assumption_form_modal = assumptionForm.AssumptionInitForm(self);
+                builder.setView(assumption_form_modal);
+
+                builder.setCancelable(false);
+
+                dialog = builder.create();
+                assumptionForm.setDialogInstance(dialog);
+                assumptionForm.getAssumerInformation(); // userID and propertyID was set already
+
+                dialog.show();
             }
         });
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +84,7 @@ public class PropertyViewCertainJewelry extends AppCompatActivity implements PVC
     }
     public void initForm() {
         Bundle bundle = getIntent().getExtras();
-
+        self = PropertyViewCertainJewelry.this;
         propertyID = bundle.getInt("property_id");
         common = new Common();
 

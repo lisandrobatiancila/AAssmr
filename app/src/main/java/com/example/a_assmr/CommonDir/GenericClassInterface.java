@@ -4,6 +4,6 @@ public interface GenericClassInterface<T> {
     public void resetForm(GenericClass<T> genericClass);
 }
 /* this interface is used to reset the form from child TO parent
-  We cant send a trigger response to the parent class if some child class has done process the request
+  We cant send a trigger response to the parent class if some child class has done / finished / completed a process the request,
   So we create a GenericClassInterface, and try if this can solve our issue.
 */
