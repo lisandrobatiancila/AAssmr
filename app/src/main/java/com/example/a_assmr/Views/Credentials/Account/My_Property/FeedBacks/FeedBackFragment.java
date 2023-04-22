@@ -115,7 +115,6 @@ public class FeedBackFragment extends Fragment implements FeedBackInterface {
         itemViewModel.getSelectedItem().observe(requireActivity(), item -> {
             Object obj = item.getCertainGenericClass();
             if(obj instanceof FeedBackServerResponse) {
-                Toast.makeText(context, ((FeedBackServerResponse) obj).getStatus()+"", Toast.LENGTH_LONG).show();
                 if(((FeedBackServerResponse) obj).getCode() == 200) {
                     FeedBackAdapter feedBackAdapter = new FeedBackAdapter(context, ((FeedBackServerResponse) obj).getUserFeedBacks());
                     rvFeedBacks.setLayoutManager(new LinearLayoutManager(context));
