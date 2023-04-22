@@ -63,16 +63,16 @@
                         android:text="Contact#"
                         android:padding="5dp"/>
                     <TextView
-                        android:id="@+id/txtBrand"
+                        android:id="@+id/txtJewelryName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Brand"
+                        android:text="Jewelry name"
                         android:padding="5dp"/>
                     <TextView
-                        android:id="@+id/txtModel"
+                        android:id="@+id/txtJewelryType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Model"
+                        android:text="Jewelry type"
                         android:padding="5dp"/>
                     <TextView
                         android:id="@+id/txtLocation"

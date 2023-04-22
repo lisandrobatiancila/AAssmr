@@ -63,16 +63,16 @@
                         android:text="Contact#"
                         android:padding="5dp"/>
                     <TextView
-                        android:id="@+id/txtBrand"
+                        android:id="@+id/txtPropType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Brand"
+                        android:text="Property Type"
                         android:padding="5dp"/>
                     <TextView
-                        android:id="@+id/txtModel"
+                        android:id="@+id/txtRealType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Model"
+                        android:text="Realestate Type"
                         android:padding="5dp"/>
                     <TextView
                         android:id="@+id/txtLocation"

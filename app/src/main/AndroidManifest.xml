@@ -25,9 +25,11 @@
         <activity android:name=".Views.Credentials.Account.My_Property.ViewProperty.VURCertainProperty.UpdateCertainJewelry" android:parentActivityName=".Views.Credentials.Account.AccountHome"/>
         <!-- end my property "account side"!-->
 
-        <!-- properties assumption !-->
+        <!-- properties assumption view-certain-vehicle !-->
         <activity android:name=".Views.Credentials.Properties.View.PropertyViewCertainVehicle" android:parentActivityName=".MainActivity"/>
-        <!-- end properties assumption !-->
+        <activity android:name=".Views.Credentials.Properties.View.PropertyViewCertainRealestate" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Views.Credentials.Properties.View.PropertyViewCertainJewelry" android:parentActivityName=".MainActivity"/>
+        <!-- end properties assumption view-certain-vehicle !-->
 
         <activity android:name=".Views.Credentials.Signin.Signin" android:parentActivityName=".MainActivity"/>
         <activity android:name=".Views.Credentials.Signup.Signup" android:parentActivityName=".MainActivity"/>

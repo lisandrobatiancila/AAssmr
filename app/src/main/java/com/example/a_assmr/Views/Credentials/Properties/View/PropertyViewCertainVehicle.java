@@ -25,8 +25,8 @@ import java.util.List;
 public class PropertyViewCertainVehicle extends AppCompatActivity implements PVCInterface {
     SwipeRefreshLayout swipeRefreshLayout;
     ImageSlider imageSlider;
-    TextView txtStatus, txtOwner, txtContactno, txtBrand, txtModel, txtLocation;
-    TextView txtInstallmentpaid, txtInstallmentduration, txtDescription;
+    TextView txtStatus, txtOwner, txtContactno, txtBrand, txtModel, txtLocation, txtDownpayment;
+    TextView txtInstallmentpaid, txtInstallmentduration, txtDelinquent, txtDescription;
     Button btnAssume, btnBack;
     Bundle bundle;
     int propertyID;
@@ -73,6 +73,9 @@ public class PropertyViewCertainVehicle extends AppCompatActivity implements PVC
         txtInstallmentpaid = findViewById(R.id.txtInstallmentpaid); txtInstallmentduration = findViewById(R.id.txtInstallmentduration);
         txtDescription = findViewById(R.id.txtDescription);
 
+        txtDownpayment = findViewById(R.id.txtDownpayment);
+        txtDelinquent = findViewById(R.id.txtDelinquent);
+
         btnAssume = findViewById(R.id.btnAssume); btnBack = findViewById(R.id.btnBack);
         this.common = new Common();
     }
@@ -102,8 +105,11 @@ public class PropertyViewCertainVehicle extends AppCompatActivity implements PVC
             txtBrand.setText("Brand: "+((PVCVehicleModel) obj).vehicle.get(0).getVehicleBrand());
             txtModel.setText("Model: "+((PVCVehicleModel) obj).vehicle.get(0).getVehicleModel());
             txtLocation.setText("Location: "+((PVCVehicleModel) obj).vehicle.get(0).getVehicleLocation());
+            txtDownpayment.setText("Downpayment: "+((PVCVehicleModel) obj).vehicle.get(0).getVehicleDownpayment());
+
             txtInstallmentpaid.setText("Installmentpaid: "+((PVCVehicleModel) obj).vehicle.get(0).getVehicleInstallmentPaid());
             txtInstallmentduration.setText("Duration: "+((PVCVehicleModel) obj).vehicle.get(0).getVehicleInstallmentDuration());
+            txtDelinquent.setText("Delinquent: "+((PVCVehicleModel) obj).vehicle.get(0).getVehicleDelinquent());
             txtDescription.setText("Description: "+((PVCVehicleModel) obj).vehicle.get(0).getDescription());
         }
     }
