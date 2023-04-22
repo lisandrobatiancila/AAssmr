@@ -84,9 +84,7 @@ public class AccountHome extends AppCompatActivity implements AddVehicleInterfac
                         try {
                             ActiveUserSharedPref sharedPref = new ActiveUserSharedPref(AccountHome.this);
                             sharedPref.clearUserSession();
-
-                            System.out.println("activeUSER");
-                            System.out.println(sharedPref.activeUserID());
+                            int userID = sharedPref.activeUserID(); // throws an exception; its fine for now but need to DEBUG this
                         }
                         catch (Exception e) {
                             Intent i_signin = new Intent(getApplicationContext(), Signin.class);
