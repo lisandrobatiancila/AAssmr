@@ -29,6 +29,7 @@ import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Veh
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Interface.AddVehicleInterface;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Model.AddVehicleResponse;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.FeedBacks.FeedBackFragment;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.Settings.SettingsFragment;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ViewProperty;
 import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties;
 import com.example.a_assmr.Views.Credentials.Signin.Signin;
@@ -79,6 +80,8 @@ public class AccountHome extends AppCompatActivity implements AddVehicleInterfac
                     case R.id.accntInquiries:
                     break;
                     case R.id.accntSettings:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new SettingsFragment()).commit();
+                        drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                     case R.id.accntLogout:
                         try {
