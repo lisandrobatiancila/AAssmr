@@ -220,10 +220,10 @@ public class SettingsFragment extends Fragment {
                     hashedProvinces.put(province.name.trim(), province.barangay);
                 }
 
-                ArrayAdapter cityAdapter = new ArrayAdapter(requireActivity(), android.R.layout.simple_list_item_1, cityLists);
+                ArrayAdapter cityAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, cityLists);
                 spinnerCity.setAdapter(cityAdapter);
 
-                ArrayAdapter provinceAdapter = new ArrayAdapter(requireActivity(), android.R.layout.simple_list_item_1, provinceLists);
+                ArrayAdapter provinceAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, provinceLists);
                 spinnerProvince.setAdapter(provinceAdapter);
 
                 spinnerCity.setSelection(cityPos);

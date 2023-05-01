@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+    <item
+        android:id="@+id/propertyDetails"
+        android:title="Property Details"/>
+    <item
+        android:id="@+id/ownerInfo"
+        android:title="Owner Information"/>
+    <item
+        android:id="@+id/sendMessage"
+        android:title="Send Message"/>
+</menu>

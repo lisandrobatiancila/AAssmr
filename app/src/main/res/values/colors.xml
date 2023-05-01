@@ -14,4 +14,5 @@
     <color name="btnDanger">#f5b642</color>
     <color name="btnInfo">#14a5c9</color>
     <color name="btnSuccess">#2dd280</color>
+    <color name="purpleColor">#7161ef</color>
 </resources>

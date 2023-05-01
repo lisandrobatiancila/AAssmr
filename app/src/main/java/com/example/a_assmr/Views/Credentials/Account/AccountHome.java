@@ -29,6 +29,7 @@ import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Veh
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Interface.AddVehicleInterface;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.AddProperty.Vehicle.Model.AddVehicleResponse;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.FeedBacks.FeedBackFragment;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.Inquiries;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Settings.SettingsFragment;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ViewProperty;
 import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties;
@@ -43,7 +44,7 @@ public class AccountHome extends AppCompatActivity implements AddVehicleInterfac
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_home);
-        setTitle("");
+        setTitle("View Property");
         drawerLayout = findViewById(R.id.accntHome_drawer_layout);
         navigationView = findViewById(R.id.accntHomeNavView);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_open, R.string.navigation_close);
@@ -64,22 +65,29 @@ public class AccountHome extends AppCompatActivity implements AddVehicleInterfac
                         startActivity(i_go_assume_prop);
                     break;
                     case R.id.accntAddProperty:
+                        setTitle("Add Property");
                         getSupportFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new AddProperty()).commit();
                         drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                     case R.id.accntViewProperty:
+                        setTitle("View Property");
                         getSupportFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new ViewProperty()).commit();
                         drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                     case R.id.accntFeedbacks:
+                        setTitle("FeedBacks");
                         getSupportFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new FeedBackFragment()).commit();
                         drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                     case R.id.accntMessages:
                     break;
                     case R.id.accntInquiries:
+                        setTitle("Inquiries");
+                        getSupportFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new Inquiries()).commit();
+                        drawerLayout.closeDrawer(GravityCompat.START);
                     break;
                     case R.id.accntSettings:
+                        setTitle("Settings");
                         getSupportFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new SettingsFragment()).commit();
                         drawerLayout.closeDrawer(GravityCompat.START);
                     break;
@@ -87,7 +95,8 @@ public class AccountHome extends AppCompatActivity implements AddVehicleInterfac
                         try {
                             ActiveUserSharedPref sharedPref = new ActiveUserSharedPref(AccountHome.this);
                             sharedPref.clearUserSession();
-                            int userID = sharedPref.activeUserID(); // throws an exception; its fine for now but need to DEBUG this
+                            int userID = sharedPref.activeUserID();
+                            // throws an exception; thats why we use try catch here; its fine for now but need to DEBUG this
                         }
                         catch (Exception e) {
                             Intent i_signin = new Intent(getApplicationContext(), Signin.class);
