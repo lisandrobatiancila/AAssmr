@@ -37,7 +37,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:dividerColor="@color/assmrColor"
-                        app:dividerThickness="2dp"/>
+                        app:dividerThickness="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
                     <EditText
                         android:id="@+id/edtFirstname"
                         android:layout_width="match_parent"
@@ -106,25 +108,36 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical"
+                        android:padding="5dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="City"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"/>
                         <Spinner
                             android:id="@+id/spinnerCity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="3dp"/>
+                            android:text="Province"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"/>
                         <Spinner
                             android:id="@+id/spinnerProvince"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"/>
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="3dp"/>
+                            android:text="Barangay"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginTop="5dp"/>
                         <Spinner
                             android:id="@+id/spinnerBarangay"
                             android:layout_width="match_parent"
@@ -133,6 +146,7 @@
                     </LinearLayout>
                     <!--END ADDRESS!-->
                     <Button
+                        android:id="@+id/btnSavePI"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -159,6 +173,13 @@
                         android:paddingStart="5dp"
                         android:textStyle="bold"
                         android:textSize="18dp"/>
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:dividerThickness="2dp"
+                        app:dividerColor="@color/assmrColor"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"/>
                     <EditText
                         android:id="@+id/edtEmail"
                         android:layout_width="match_parent"
@@ -169,7 +190,8 @@
                         android:drawablePadding="12dp"
                         android:padding="12dp"
                         android:layout_marginBottom="5dp"
-                        android:hint="Email"/>
+                        android:hint="Email"
+                        android:focusable="false"/>
                     <EditText
                         android:id="@+id/edtPassword"
                         android:layout_width="match_parent"
@@ -180,9 +202,9 @@
                         android:drawablePadding="12dp"
                         android:padding="12dp"
                         android:layout_marginBottom="5dp"
-                        android:hint="pass******"/>
+                        android:hint="Pass******"/>
                     <Button
-                        android:id="@+id/btnAccountSaved"
+                        android:id="@+id/btnSaveAI"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Save Changes"/>
