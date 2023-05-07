@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.MyAssumptions;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyInquiredProperty.MyInquiries;
 
 public class Inquiries extends Fragment {
     Context context;
@@ -49,11 +50,14 @@ public class Inquiries extends Fragment {
             case "my-assumptions":
                 btnInquiredProperty.setBackgroundColor(getResources().getColor(R.color.purpleColor));
                 btnMyAssumptions.setBackgroundColor(getResources().getColor(R.color.assmrColor));
+
                 getChildFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new MyAssumptions()).commit();
             break;
             case "inquired-property":
                 btnMyAssumptions.setBackgroundColor(getResources().getColor(R.color.purpleColor));
                 btnInquiredProperty.setBackgroundColor(getResources().getColor(R.color.assmrColor));
+
+                getChildFragmentManager().beginTransaction().replace(R.id.accntFrameLayout, new MyInquiries()).commit();
             break;
         }
     }
