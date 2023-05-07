@@ -44,7 +44,7 @@
                         android:layout_centerHorizontal="false"/>
                 </RelativeLayout>
                 <TextView
-                    android:id="@+id/txtVStatus"
+                    android:id="@+id/txtStatus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Status"

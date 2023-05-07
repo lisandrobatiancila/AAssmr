@@ -2,14 +2,15 @@ package com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAs
 
 public class InquiriesAssumptionModel {
     private String info1, info2, info3;
-    private String info4, info5;
+    private String info4, info5, info6;
 
-    public InquiriesAssumptionModel(String info1, String info2, String info3, String info4, String info5) {
-        this.info1 = info1; // owner-name
-        this.info2 = info2; // property info generic
-        this.info3 = info3; // property info generic
-        this.info4 = info4; // image
-        this.info5 = info5; // property type 'vehicle', 'jewelry', 'realestate'
+    public InquiriesAssumptionModel(String info1, String info2, String info3, String info4, String info5, String info6) {
+        this.info1 = info1;
+        this.info2 = info2;
+        this.info3 = info3;
+        this.info4 = info4;
+        this.info5 = info5;
+        this.info6 = info6;
     }
 
     public String getInfo1() {
@@ -50,5 +51,13 @@ public class InquiriesAssumptionModel {
 
     public void setInfo5(String info5) {
         this.info5 = info5;
+    }
+
+    public String getInfo6() {
+        return info6;
+    }
+
+    public void setInfo6(String info6) {
+        this.info6 = info6;
     }
 }

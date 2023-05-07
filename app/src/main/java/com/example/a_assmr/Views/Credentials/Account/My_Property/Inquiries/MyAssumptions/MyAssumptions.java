@@ -58,8 +58,9 @@ public class MyAssumptions extends Fragment {
                         String info3 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo3();
                         String info4 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo4();
                         String info5 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo5();
+                        String info6 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo6();
 
-                        assumptionLists.add(new InquiriesAssumptionModel(info1, info2, info3, info4, info5));
+                        assumptionLists.add(new InquiriesAssumptionModel(info1, info2, info3, info4, info5, info6));
                     }
                     MyAssumptionAdapter adapter = new MyAssumptionAdapter(context, assumptionLists);
                     rv.setLayoutManager(new LinearLayoutManager(context));

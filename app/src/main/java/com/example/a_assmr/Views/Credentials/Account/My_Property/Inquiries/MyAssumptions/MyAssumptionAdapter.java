@@ -41,13 +41,17 @@ public class MyAssumptionAdapter extends RecyclerView.Adapter<MyAssumptionHolder
             case "vehicle":
                 holder.txtInfo2.setText("Brand: "+myAssumptionLists.get(position).getInfo2());
                 holder.txtInfo3.setText("Model: "+myAssumptionLists.get(position).getInfo3());
+                holder.txtStatus.setText("Status: "+myAssumptionLists.get(position).getInfo6());
             break;
             case "jewelry":
                 holder.txtInfo2.setText("Jewelry Name: "+myAssumptionLists.get(position).getInfo2());
                 holder.txtInfo3.setText("Jewelry Model: "+myAssumptionLists.get(position).getInfo3());
-            break;
+                holder.txtStatus.setText("Status: "+myAssumptionLists.get(position).getInfo6());
+                break;
             case "realestate":
                 holder.txtInfo2.setText("Realestate Type: "+myAssumptionLists.get(position).getInfo2());
+                holder.txtStatus.setText("Status: "+myAssumptionLists.get(position).getInfo6());
+                holder.txtInfo3.setVisibility(View.GONE);
             break;
         }
         holder.txtInfo1.setText("Owner: "+myAssumptionLists.get(position).getInfo1());

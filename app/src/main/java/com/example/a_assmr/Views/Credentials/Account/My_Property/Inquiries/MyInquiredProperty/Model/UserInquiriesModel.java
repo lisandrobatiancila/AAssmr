@@ -3,15 +3,17 @@ package com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyIn
 public class UserInquiriesModel {
     private int assumerID;
     private String userFname, userMname, userLname, userContactno, userEmail;
-    private String image;
+    private String assumptionCount, propertyStatus, image;
 
-    public UserInquiriesModel(int assumerID, String userFname, String userMname, String userLname, String userContactno, String userEmail, String image) {
+    public UserInquiriesModel(int assumerID, String userFname, String userMname, String userLname, String userContactno, String userEmail, String assumptionCount, String propertyStatus, String image) {
         this.assumerID = assumerID;
         this.userFname = userFname;
         this.userMname = userMname;
         this.userLname = userLname;
         this.userContactno = userContactno;
         this.userEmail = userEmail;
+        this.assumptionCount = assumptionCount;
+        this.propertyStatus = propertyStatus;
         this.image = image;
     }
 
@@ -61,6 +63,22 @@ public class UserInquiriesModel {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public String getAssumptionCount() {
+        return assumptionCount;
+    }
+
+    public void setAssumptionCount(String assumptionCount) {
+        this.assumptionCount = assumptionCount;
+    }
+
+    public String getPropertyStatus() {
+        return propertyStatus;
+    }
+
+    public void setPropertyStatus(String propertyStatus) {
+        this.propertyStatus = propertyStatus;
     }
 
     public String getImage() {

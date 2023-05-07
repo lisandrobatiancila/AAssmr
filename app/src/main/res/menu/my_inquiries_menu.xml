@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuViewProperty"
+        android:title="Property Details"/>
+    <item
+        android:id="@+id/menuAssumerInfo"
+        android:title="Assumer Information"/>
+    <item
+        android:id="@+id/sendMessage"
+        android:title="Send Message"/>
+</menu>
