@@ -31,11 +31,17 @@
         <activity android:name=".Views.Credentials.Properties.View.PropertyViewCertainJewelry" android:parentActivityName=".MainActivity"/>
         <!-- end properties assumption view-certain-vehicle !-->
 
+        <!-- My Assumptions !-->
+        <activity android:name=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.PropertyDetails.PropertyDetails" android:parentActivityName=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.PropertyDetails.PropertyDetails"/>
+        <activity android:name=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.OwnerInformation" android:parentActivityName=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.OwnerInformation"/>
+        <!-- end My Assumptions !-->
+
         <activity android:name=".Views.Credentials.Signin.Signin" android:parentActivityName=".MainActivity"/>
         <activity android:name=".Views.Credentials.Signup.Signup" android:parentActivityName=".MainActivity"/>
         <activity android:name=".Views.Credentials.Properties.PropertyLists.Properties"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".Views.Credentials.Account.AccountHome"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

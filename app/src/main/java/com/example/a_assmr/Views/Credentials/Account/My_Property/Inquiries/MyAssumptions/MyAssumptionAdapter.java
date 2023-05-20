@@ -1,7 +1,9 @@
 package com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.a_assmr.Common;
 import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.Model.InquiriesAssumptionModel;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.OwnerInformation;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.PropertyDetails.PropertyDetails;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -37,6 +41,8 @@ public class MyAssumptionAdapter extends RecyclerView.Adapter<MyAssumptionHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyAssumptionHolder holder, int position) {
+        int pos = position;
+
         switch (myAssumptionLists.get(position).getInfo5()) {
             case "vehicle":
                 holder.txtInfo2.setText("Brand: "+myAssumptionLists.get(position).getInfo2());
@@ -66,6 +72,36 @@ public class MyAssumptionAdapter extends RecyclerView.Adapter<MyAssumptionHolder
             @Override
             public void onClick(View view) {
                 popupMenu.show();
+            }
+        });
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                int menuID = menuItem.getItemId();
+                switch (menuID) {
+                    case R.id.propertyDetails:
+                        Intent iViewPropDetails = new Intent(context, PropertyDetails.class);
+                        iViewPropDetails.putExtra("userID", myAssumptionLists.get(pos).getUserID());
+                        iViewPropDetails.putExtra("itemID", myAssumptionLists.get(pos).getID()); // means vehicleID or realesateID or jewelryID
+                        iViewPropDetails.putExtra("propID", myAssumptionLists.get(pos).getPropID()); // means propertyID
+                        iViewPropDetails.putExtra("propertyType", myAssumptionLists.get(pos).getInfo5());
+
+                        context.startActivity(iViewPropDetails);
+                    break;
+                    case R.id.ownerInfo:
+                        Intent iViewOwnerInformation = new Intent(context, OwnerInformation.class);
+                        iViewOwnerInformation.putExtra("userID", myAssumptionLists.get(pos).getUserID());
+                        iViewOwnerInformation.putExtra("itemID", myAssumptionLists.get(pos).getID()); // means vehicleID or realesateID or jewelryID
+                        iViewOwnerInformation.putExtra("propID", myAssumptionLists.get(pos).getPropID()); // means propertyID
+                        iViewOwnerInformation.putExtra("propertyType", myAssumptionLists.get(pos).getInfo5());
+
+                        context.startActivity(iViewOwnerInformation);
+                        break;
+                    case R.id.sendMessage:
+
+                    break;
+                }
+                return false;
             }
         });
     }
