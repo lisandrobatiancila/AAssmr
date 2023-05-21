@@ -36,6 +36,10 @@
         <activity android:name=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.OwnerInformation" android:parentActivityName=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.OwnerInformation"/>
         <!-- end My Assumptions !-->
 
+        <!-- CHAT-MESSAGES!-->
+        <activity android:name=".Views.Credentials.Account.My_Property.Messages.ChatRoom.ChatRoom" android:parentActivityName=".Views.Credentials.Account.My_Property.Messages.ChatRoom.ChatRoom"/>
+        <!--END OF CHAT MESSAGES!-->
+
         <activity android:name=".Views.Credentials.Signin.Signin" android:parentActivityName=".MainActivity"/>
         <activity android:name=".Views.Credentials.Signup.Signup" android:parentActivityName=".MainActivity"/>
         <activity android:name=".Views.Credentials.Properties.PropertyLists.Properties"
