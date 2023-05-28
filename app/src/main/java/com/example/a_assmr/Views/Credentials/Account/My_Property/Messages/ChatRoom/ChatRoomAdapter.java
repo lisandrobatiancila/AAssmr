@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.a_assmr.Common;
 import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Messages.ChatRoom.Model.GetMessagesModel;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -48,6 +49,11 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomHolder> {
             }
             else if(messageLists.get(position).getMessage_type().equals("image-only")) {
                 holder.txtInboundMessages.setVisibility(View.GONE);
+                String image = messageLists.get(position).getMessage();
+                String[] imageARR = image.substring(1, image.length()-1).split(",");
+                Picasso.get().load(common.getApiURI()+"/"+imageARR[0].replaceAll("\"", "")).resize(200, 200).placeholder(R.drawable.ic_launcher_background)
+                        .into(holder.imgInboundMessages);
+
             }
         } // end of active user messages; means inboundMessages
         else {
@@ -57,7 +63,13 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomHolder> {
                 holder.txtOutboundMessages.setText(messageLists.get(position).getMessage());
             }
             else if(messageLists.get(position).getMessage_type().equals("image-only")) {
-                holder.imgOutboundMessages.setVisibility(View.GONE);
+                holder.txtOutboundMessages.setVisibility(View.GONE);
+
+                String image = messageLists.get(position).getMessage();
+                String[] imageARR = image.substring(1, image.length()-1).split(",");
+
+                Picasso.get().load(common.getApiURI()+"/"+imageARR[0].replaceAll("\"", "")).placeholder(R.drawable.ic_launcher_background)
+                        .into(holder.imgOutboundMessages);
             }
         } // end of other user messages; means outboundMessages
     }

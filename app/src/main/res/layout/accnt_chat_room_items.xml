@@ -20,8 +20,8 @@
             android:padding="5dp"/>
         <ImageView
             android:id="@+id/imgOutboundMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@drawable/ic_launcher_background"/>
     </LinearLayout>
 
@@ -41,8 +41,8 @@
             android:padding="5dp"/>
         <ImageView
             android:id="@+id/imgInboundMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:src="@drawable/ic_launcher_background"/>
     </LinearLayout>
 

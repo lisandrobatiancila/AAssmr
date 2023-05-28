@@ -7,14 +7,18 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMessages"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/chattboxContainer"
+        android:layout_alignParentTop="true" />
 
     <LinearLayout
+        android:id="@+id/chattboxContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@color/white">
         <ImageButton
             android:id="@+id/btnUploadIMG"
             android:layout_width="40dp"
