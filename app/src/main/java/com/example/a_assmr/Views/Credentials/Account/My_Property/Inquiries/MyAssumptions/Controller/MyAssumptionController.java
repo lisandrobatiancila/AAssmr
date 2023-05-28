@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.a_assmr.Common;
 import com.example.a_assmr.CommonDir.GenericClassServerResponse;
+import com.example.a_assmr.CommonDir.StandardResponse;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.Interface.MyAssumptionsDBInterface;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.Model.MyAssumptionsModel;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.Model.OwnerModelContainer;
@@ -132,6 +133,41 @@ public class MyAssumptionController {
 
             @Override
             public void onFailure(Call<OwnerModelContainer> call, Throwable t) {
+                Toast.makeText(context, "F: "+t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    public void cancelAssumption(int userID, int assumptionID, int propertyID) {
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(httpLoggingInterceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(this.common.getApiURI())
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        MyAssumptionsDBInterface assumptionsDBInterface = retrofit.create(MyAssumptionsDBInterface.class);
+        Call<StandardResponse> call = assumptionsDBInterface.cancelMyAssumption(userID, assumptionID, propertyID);
+        call.enqueue(new Callback<StandardResponse>() {
+            @Override
+            public void onResponse(Call<StandardResponse> call, Response<StandardResponse> response) {
+                if(!response.isSuccessful()) {
+                    Toast.makeText(context, "R: "+response.message(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+                GenericClassServerResponse<StandardResponse> genericClassServerResponse = new GenericClassServerResponse<>();
+                genericClassServerResponse.setCertainGenericClassServerResponse(response.body());
+
+                itemViewModel.selectItem(genericClassServerResponse);
+            }
+
+            @Override
+            public void onFailure(Call<StandardResponse> call, Throwable t) {
                 Toast.makeText(context, "F: "+t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

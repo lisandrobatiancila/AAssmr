@@ -2,12 +2,16 @@ package com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAs
 
 public class PropertyModel {
     int propertyID, itemID;
+    String userEmail; // means other user OR the inboundUser
+    int assumptionID;
     String owner, contactno, location, downpayment, duration, delinquent, propertyType, description, img;
     int assumptionCount;
 
-    public PropertyModel(int propertyID, int itemID, String owner, String contactno, String location, String downpayment, String duration, String delinquent, String propertyType, String description, String img, int assumptionCount) {
+    public PropertyModel(int propertyID, int itemID, String userEmail, int assumptionID, String owner, String contactno, String location, String downpayment, String duration, String delinquent, String propertyType, String description, String img, int assumptionCount) {
         this.propertyID = propertyID;
         this.itemID = itemID;
+        this.userEmail = userEmail;
+        this.assumptionID = assumptionID;
         this.owner = owner;
         this.contactno = contactno;
         this.location = location;
@@ -34,6 +38,22 @@ public class PropertyModel {
 
     public void setItemID(int itemID) {
         this.itemID = itemID;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public int getAssumptionID() {
+        return assumptionID;
+    }
+
+    public void setAssumptionID(int assumptionID) {
+        this.assumptionID = assumptionID;
     }
 
     public String getOwner() {

@@ -110,10 +110,12 @@
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp">
                         <Button
+                            android:id="@+id/btnCanceMyAssumption"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Cancel My Assumption"/>
                         <Button
+                            android:id="@+id/btnSendMessage"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Send message"/>

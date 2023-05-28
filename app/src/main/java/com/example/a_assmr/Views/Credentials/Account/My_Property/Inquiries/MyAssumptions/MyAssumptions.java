@@ -56,6 +56,7 @@ public class MyAssumptions extends Fragment {
                         int userID = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getUserID();
                         int ID = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getID();
                         int propID = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getPropID();
+                        String userEmail = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getUserEmail();
                         String info1 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo1();
                         String info2 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo2();
                         String info3 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo3();
@@ -63,7 +64,7 @@ public class MyAssumptions extends Fragment {
                         String info5 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo5();
                         String info6 = ((MyAssumptionsModel) obj).getMyassumptions().get(i).getInfo6();
 
-                        assumptionLists.add(new InquiriesAssumptionModel(userID, ID, propID, info1, info2, info3, info4, info5, info6));
+                        assumptionLists.add(new InquiriesAssumptionModel(userID, ID, propID,userEmail , info1, info2, info3, info4, info5, info6));
                     }
                     MyAssumptionAdapter adapter = new MyAssumptionAdapter(context, assumptionLists);
                     rv.setLayoutManager(new LinearLayoutManager(context));

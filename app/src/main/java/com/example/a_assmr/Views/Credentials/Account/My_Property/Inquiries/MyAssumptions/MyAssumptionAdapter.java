@@ -16,6 +16,7 @@ import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.Model.InquiriesAssumptionModel;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.OwnerInformation;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.PropertyDetails.PropertyDetails;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.Messages.ChatRoom.ChatRoom;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -85,7 +86,6 @@ public class MyAssumptionAdapter extends RecyclerView.Adapter<MyAssumptionHolder
                         iViewPropDetails.putExtra("itemID", myAssumptionLists.get(pos).getID()); // means vehicleID or realesateID or jewelryID
                         iViewPropDetails.putExtra("propID", myAssumptionLists.get(pos).getPropID()); // means propertyID
                         iViewPropDetails.putExtra("propertyType", myAssumptionLists.get(pos).getInfo5());
-
                         context.startActivity(iViewPropDetails);
                     break;
                     case R.id.ownerInfo:
@@ -98,7 +98,10 @@ public class MyAssumptionAdapter extends RecyclerView.Adapter<MyAssumptionHolder
                         context.startActivity(iViewOwnerInformation);
                         break;
                     case R.id.sendMessage:
-
+                        String outboundUser = myAssumptionLists.get(pos).getUserEmail();
+                        Intent i_open_chat_room = new Intent(context, ChatRoom.class);
+                        i_open_chat_room.putExtra("message_sender", outboundUser);
+                        context.startActivity(i_open_chat_room);
                     break;
                 }
                 return false;

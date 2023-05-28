@@ -1,5 +1,6 @@
 package com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import com.example.a_assmr.Common;
 import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.Controller.MyAssumptionController;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.Model.OwnerModelContainer;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.Messages.ChatRoom.ChatRoom;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ItemViewModel;
 
 public class OwnerInformation extends AppCompatActivity {
@@ -22,6 +24,7 @@ public class OwnerInformation extends AppCompatActivity {
     ItemViewModel itemViewModel;
     TextView txtOwner, txtContactno, txtLocation, txtPostedProperty;
     Button btnSendMessage;
+    String outboundUser = ""; // the other non-active user
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,7 @@ public class OwnerInformation extends AppCompatActivity {
             Object obj = item.getCertainGenericClass();
             if(obj instanceof OwnerModelContainer) {
                 if(((OwnerModelContainer) obj).getCode() == 200) {
+                    outboundUser = ((OwnerModelContainer) obj).getOwnerInformation().get(0).getOwnerEmail();
                     txtOwner.setText("Owner: "+((OwnerModelContainer) obj).getOwnerInformation().get(0).getOwnerName());
                     txtContactno.setText("Contactno: "+((OwnerModelContainer) obj).getOwnerInformation().get(0).getOwnerContactno());
                     txtLocation.setText("Location: "+((OwnerModelContainer) obj).getOwnerInformation().get(0).getOwnerAddress());
@@ -47,7 +51,9 @@ public class OwnerInformation extends AppCompatActivity {
         btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i_open_chat_room = new Intent(OwnerInformation.this, ChatRoom.class);
+                i_open_chat_room.putExtra("message_sender", outboundUser); // the other non-active user
+                OwnerInformation.this.startActivity(i_open_chat_room);
             }
         });
     }
