@@ -54,6 +54,16 @@
                     android:textColor="@color/white"
                     android:layout_marginTop="3dp"
                     android:layout_marginBottom="3dp"/>
+                <TextView
+                    android:id="@+id/txtAssmptnCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+0"
+                    android:background="@drawable/status_badge"
+                    android:layout_gravity="right"
+                    android:padding="5dp"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="3dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -64,12 +74,12 @@
                     android:id="@+id/txtAssumerName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Assumer name"/>
+                    android:text="Info 1"/>
                 <TextView
                     android:id="@+id/txtAssumerContacto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Assumer contactno"/>
+                    android:text="Info 2"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

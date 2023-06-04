@@ -5,16 +5,27 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.Button
+import com.example.a_assmr.NotificationService.NotificationService
 import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties
 import com.example.a_assmr.Views.Credentials.Signin.Signin
 import com.example.a_assmr.Views.Credentials.Signup.Signup
+import java.util.Timer
+import java.util.TimerTask
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.index_view)
+        val s = NotificationService(this)
+        Timer().schedule(object: TimerTask() {
+            override fun run() {
+                s.pushNotifications()
+            }
+
+        }, 0, 3000)
 
         if(checkUserIsActive()) {
             var i_active = Intent(this, Properties::class.java)

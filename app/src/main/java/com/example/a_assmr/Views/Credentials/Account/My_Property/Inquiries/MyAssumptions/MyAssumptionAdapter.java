@@ -86,6 +86,8 @@ public class MyAssumptionAdapter extends RecyclerView.Adapter<MyAssumptionHolder
                         iViewPropDetails.putExtra("itemID", myAssumptionLists.get(pos).getID()); // means vehicleID or realesateID or jewelryID
                         iViewPropDetails.putExtra("propID", myAssumptionLists.get(pos).getPropID()); // means propertyID
                         iViewPropDetails.putExtra("propertyType", myAssumptionLists.get(pos).getInfo5());
+                        iViewPropDetails.putExtra("actionType", "remove-my-assumption"); // this remove active-user assumptions
+
                         context.startActivity(iViewPropDetails);
                     break;
                     case R.id.ownerInfo:

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
@@ -35,6 +36,11 @@
         <activity android:name=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.PropertyDetails.PropertyDetails" android:parentActivityName=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.PropertyDetails.PropertyDetails"/>
         <activity android:name=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.OwnerInformation" android:parentActivityName=".Views.Credentials.Account.My_Property.Inquiries.MyAssumptions.OwnerInformation.OwnerInformation"/>
         <!-- end My Assumptions !-->
+
+        <!--! Inquired Property !-->
+        <activity android:name=".Views.Credentials.Account.My_Property.Inquiries.MyInquiredProperty.AssumerInformation.AssumerInformation"
+            android:parentActivityName=".Views.Credentials.Account.My_Property.Inquiries.MyInquiredProperty.AssumerInformation.AssumerInformation"/>
+        <!-- end Inquired Property !-->
 
         <!-- CHAT-MESSAGES!-->
         <activity android:name=".Views.Credentials.Account.My_Property.Messages.ChatRoom.ChatRoom" android:parentActivityName=".Views.Credentials.Account.My_Property.Messages.ChatRoom.ChatRoom"/>

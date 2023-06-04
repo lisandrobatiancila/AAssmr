@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,11 +33,13 @@ public class PropertyDetails extends AppCompatActivity {
     ImageSlider imageSlider;
     TextView txtAssumptionCount, txtOwner, txtContactno, txtLocation, txtDownpayment, txtDuration, txtDelinquent, txtDescription;
     Button btnCancelAssumption, btnSendMessage;
+    LinearLayout linearLayout;
     MyAssumptionController myAssumptionController;
     ItemViewModel itemViewModel;
     String outboundUser; // the other non-active user
     private int assumptionID, propertyID;
     Common common;
+    String actionType = "";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,7 @@ public class PropertyDetails extends AppCompatActivity {
         txtDownpayment = findViewById(R.id.txtDownpayment); txtDuration = findViewById(R.id.txtDuration); txtDelinquent = findViewById(R.id.txtDelinquent);
         txtDescription = findViewById(R.id.txtDescription);
 
+        linearLayout = findViewById(R.id.linearActions);
         btnCancelAssumption = findViewById(R.id.btnCanceMyAssumption);
         btnSendMessage = findViewById(R.id.btnSendMessage);
 
@@ -63,16 +67,30 @@ public class PropertyDetails extends AppCompatActivity {
         int itemID = bundle.getInt("itemID"); // means the vehicleID or realestateID or jewelryID
         propertyID = bundle.getInt("propID"); // means the propertyID
         String propertyType = bundle.getString("propertyType");
+        actionType = bundle.getString("actionType");
 
-        myAssumptionController = new MyAssumptionController(this, PropertyDetails.this);
-        myAssumptionController.getMyCertainAssumption(new ActiveUserSharedPref(this).activeUserID(), propertyType, propertyID, itemID);
+        if(actionType.equals("remove-assumer-assumptions")) {
+            linearLayout.setVisibility(View.GONE);
+            myAssumptionController = new MyAssumptionController(this, PropertyDetails.this);
+            myAssumptionController.getMyCertainAssumption(new ActiveUserSharedPref(this).activeUserID(), propertyType, propertyID, itemID);
+            // I did this on purpose; i HIDE the LinearLayout; to tell that no Property owner has no action HERE.
+        } // property owner trigger a remove / cancel assumer assumptions
+        else if(actionType.equals("remove-my-assumption")) {
+            myAssumptionController = new MyAssumptionController(this, PropertyDetails.this);
+            myAssumptionController.getMyCertainAssumption(new ActiveUserSharedPref(this).activeUserID(), propertyType, propertyID, itemID);
+        } // active user / property owner; cancel / remove his property assumptions
 
         itemViewModel.getSelectedItem().observe(this, object -> {
             Object obj = object.getCertainGenericClass();
             if(obj instanceof PropertyDetailsModel && ((PropertyDetailsModel) obj).getCode() == 200) {
                 List<SlideModel> imageLists  = new ArrayList<>();
+                String message = "";
+                if(actionType.equals("remove-assumer-assumptions"))
+                    message = "+ "+((PropertyDetailsModel) obj).getCertainProperty().get(0).getAssumptionCount()+" Other assume this.";
+                else if(actionType.equals("remove-my-assumption"))
+                    message = "You +"+(((PropertyDetailsModel) obj).getCertainProperty().get(0).getAssumptionCount()-1)+" User assumed this.";
 
-                txtAssumptionCount.setText("You +"+(((PropertyDetailsModel) obj).getCertainProperty().get(0).getAssumptionCount()-1)+" Other assume this.");
+                txtAssumptionCount.setText(message);
                 txtOwner.setText("Owner: "+((PropertyDetailsModel) obj).getCertainProperty().get(0).getOwner());
                 txtContactno.setText("Contactno: "+((PropertyDetailsModel) obj).getCertainProperty().get(0).getContactno());
                 txtLocation.setText("Location: "+((PropertyDetailsModel) obj).getCertainProperty().get(0).getLocation());
@@ -121,6 +139,7 @@ public class PropertyDetails extends AppCompatActivity {
                                 int userID = userSharedPref.activeUserID();
                                 assumptionID = assumptionID; // para dili ko malipat
                                 propertyID = propertyID; // para dili ko malipat
+                                Toast.makeText(getBaseContext(), assumptionID+" p: "+propertyID, Toast.LENGTH_LONG).show();
                                 myAssumptionController.cancelAssumption(userID, assumptionID, propertyID);
                             }
                         })

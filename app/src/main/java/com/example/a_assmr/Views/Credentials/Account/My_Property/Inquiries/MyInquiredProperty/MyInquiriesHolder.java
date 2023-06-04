@@ -11,7 +11,7 @@ import com.example.a_assmr.R;
 
 public class MyInquiriesHolder extends RecyclerView.ViewHolder {
     ImageView imageView, imageThreeDots;
-    TextView txtStatus, txtAssumerName, txtAssumerContactno;
+    TextView txtStatus, txtInfo1, txtInfo2, txtAssmptnCount;
     public MyInquiriesHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -19,7 +19,8 @@ public class MyInquiriesHolder extends RecyclerView.ViewHolder {
         imageThreeDots = itemView.findViewById(R.id.threeDots);
 
         txtStatus = itemView.findViewById(R.id.txtStatus);
-        txtAssumerName = itemView.findViewById(R.id.txtAssumerName);
-        txtAssumerContactno = itemView.findViewById(R.id.txtAssumerContacto);
+        txtInfo1 = itemView.findViewById(R.id.txtAssumerName);
+        txtInfo2 = itemView.findViewById(R.id.txtAssumerContacto);
+        txtAssmptnCount = itemView.findViewById(R.id.txtAssmptnCount);
     }
 }

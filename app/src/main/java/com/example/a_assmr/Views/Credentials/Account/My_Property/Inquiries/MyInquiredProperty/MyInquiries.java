@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.a_assmr.CommonDir.ActiveUserSharedPref;
+import com.example.a_assmr.CommonDir.StandardResponse;
 import com.example.a_assmr.R;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyInquiredProperty.Controller.MyInquiriesController;
 import com.example.a_assmr.Views.Credentials.Account.My_Property.Inquiries.MyInquiredProperty.Model.MyInquiryModel;
@@ -66,6 +67,12 @@ public class MyInquiries extends Fragment {
                 }
                 else
                     Toast.makeText(context, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+            else if(obj instanceof StandardResponse) {
+                if(((StandardResponse) obj).getCode() == 200)
+                    Toast.makeText(context, "Removing was successful.", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(context, "Cancellation has failed.", Toast.LENGTH_LONG).show();
             }
         });
     }
