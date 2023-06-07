@@ -12,7 +12,9 @@ public class ActiveUserSharedPref {
 
     public int activeUserID() {
         SharedPreferences sharedPreferences = context.getSharedPreferences("Credentials", Context.MODE_PRIVATE);
-        int userID = Integer.parseInt(sharedPreferences.getString("userID", ""));
+        int userID = 0;
+        if(!sharedPreferences.getString("userID", "").equals(""))
+            userID = Integer.parseInt(sharedPreferences.getString("userID", ""));
 
         return userID;
     }

@@ -1,13 +1,21 @@
 package com.example.a_assmr
 
 import android.annotation.SuppressLint
+import android.content.ClipData.Item
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import com.example.a_assmr.CommonDir.ActiveUserSharedPref
+import com.example.a_assmr.CommonDir.GenericClassServerResponse
+import com.example.a_assmr.NotificationService.Model.NotificationServiceModelContainer
 import com.example.a_assmr.NotificationService.NotificationService
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ItemViewModel
 import com.example.a_assmr.Views.Credentials.Properties.PropertyLists.Properties
 import com.example.a_assmr.Views.Credentials.Signin.Signin
 import com.example.a_assmr.Views.Credentials.Signup.Signup
@@ -19,13 +27,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.index_view)
-        val s = NotificationService(this)
+        val s = NotificationService(applicationContext)
         Timer().schedule(object: TimerTask() {
             override fun run() {
-                s.pushNotifications()
+                val ausp = ActiveUserSharedPref(applicationContext)
+                if((!ausp.activeUserID().equals(null) || !ausp.activeUserID().equals("")) ||
+                    (!ausp.activeUserEmail().equals(null) || !ausp.activeUserEmail().equals(""))) {
+                    s.pushNotifications(ausp.activeUserID(), ausp.activeUserEmail())
+                }
             }
-
-        }, 0, 3000)
+        }, 0, 10000)
 
         if(checkUserIsActive()) {
             var i_active = Intent(this, Properties::class.java)

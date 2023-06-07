@@ -3,9 +3,17 @@ package com.example.a_assmr.NotificationService.Controller;
 import android.content.Context;
 import android.widget.Toast;
 
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
+
 import com.example.a_assmr.Common;
+import com.example.a_assmr.CommonDir.GenericClassServerResponse;
+import com.example.a_assmr.NotificationService.Interface.NotificationResponseInterface;
 import com.example.a_assmr.NotificationService.Interface.NotificationServiceDBInterface;
 import com.example.a_assmr.NotificationService.Model.NotificationServiceModel;
+import com.example.a_assmr.NotificationService.Model.NotificationServiceModelContainer;
+import com.example.a_assmr.NotificationService.NotificationService;
+import com.example.a_assmr.Views.Credentials.Account.My_Property.ViewProperty.ItemViewModel;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -18,10 +26,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NotificationServiceController {
     Context context;
     Common common;
-
-    public NotificationServiceController(Context context) {
+    NotificationResponseInterface notificationResponseInterface;
+    public NotificationServiceController(Context context, NotificationService notificationService) {
         this.context = context;
         this.common = new Common();
+        this.notificationResponseInterface = notificationService;
     }
 
     public void getNotifications(int userID, String userEmail) {
@@ -38,18 +47,19 @@ public class NotificationServiceController {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         NotificationServiceDBInterface notificationServiceDBInterface = retrofit.create(NotificationServiceDBInterface.class);
-        Call<NotificationServiceModel> call = notificationServiceDBInterface.getNotifications(userID, userEmail);
-        call.enqueue(new Callback<NotificationServiceModel>() {
+        Call<NotificationServiceModelContainer> call = notificationServiceDBInterface.getNotifications(userID, userEmail);
+        call.enqueue(new Callback<NotificationServiceModelContainer>() {
             @Override
-            public void onResponse(Call<NotificationServiceModel> call, Response<NotificationServiceModel> response) {
+            public void onResponse(Call<NotificationServiceModelContainer> call, Response<NotificationServiceModelContainer> response) {
                 if(!response.isSuccessful()) {
                     Toast.makeText(context, "R: "+response.message(), Toast.LENGTH_LONG).show();
                     return;
                 }
+                notificationResponseInterface.notificationResponse(response.body());
             }
 
             @Override
-            public void onFailure(Call<NotificationServiceModel> call, Throwable t) {
+            public void onFailure(Call<NotificationServiceModelContainer> call, Throwable t) {
                 Toast.makeText(context, "F: "+t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
