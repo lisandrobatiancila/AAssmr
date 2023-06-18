@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.example.a_assmr.Common;
+import com.example.a_assmr.CommonIP;
 import com.example.a_assmr.Views.Credentials.Signup.Interface.SignupDBInterface;
 import com.example.a_assmr.Views.Credentials.Signup.Interface.SignupInterface;
 import com.example.a_assmr.Views.Credentials.Signup.Model.SignupServerResponse;
@@ -38,7 +39,7 @@ public class SignupController extends BroadcastReceiver {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(common.getApiURI())
+                .baseUrl(CommonIP.ip)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(httpClient)
                 .build();

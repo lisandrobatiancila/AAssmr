@@ -59,6 +59,9 @@ public class NotificationService implements NotificationResponseInterface {
                         .setContentTitle(nsm.getUserfname())
                         .setContentText(nsm.getNOTIF_TYP())
                         .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+                notificationServiceController.updateActiveUserNotifications(nsm.getID(), nsm.getNOTIF_TYP());
+
                 if(nsm.getNOTIF_TYP().equals("MSSGE")) {
                     Intent intent = new Intent(context, ChatRoom.class);
 

@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.example.a_assmr.Common;
 import com.example.a_assmr.CommonDir.GenericClassServerResponse;
+import com.example.a_assmr.CommonDir.StandardResponse;
+import com.example.a_assmr.CommonIP;
 import com.example.a_assmr.NotificationService.Interface.NotificationResponseInterface;
 import com.example.a_assmr.NotificationService.Interface.NotificationServiceDBInterface;
 import com.example.a_assmr.NotificationService.Model.NotificationServiceModel;
@@ -60,6 +62,37 @@ public class NotificationServiceController {
 
             @Override
             public void onFailure(Call<NotificationServiceModelContainer> call, Throwable t) {
+                Toast.makeText(context, "F: "+t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    public void updateActiveUserNotifications(int notificationID, String notificationType) {
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(common.getApiURI())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+        NotificationServiceDBInterface dbInterface = retrofit.create(NotificationServiceDBInterface.class);
+        Call<StandardResponse> call = dbInterface.updateActiveUserNotifications(notificationID, notificationType);
+
+        call.enqueue(new Callback<StandardResponse>() {
+            @Override
+            public void onResponse(Call<StandardResponse> call, Response<StandardResponse> response) {
+                if(!response.isSuccessful()) {
+                    Toast.makeText(context, "R: "+response.message(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StandardResponse> call, Throwable t) {
                 Toast.makeText(context, "F: "+t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
